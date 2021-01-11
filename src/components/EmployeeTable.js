@@ -1,10 +1,10 @@
-import React from 'react';
-
-import Table from 'react-bootstrap/Table';
+import React, { useState } from 'react';
 
 const EmployeeTable = props => {
+  // TODO Add State for sorting
+
   return (
-    <Table>
+    <table>
       <thead>
         <tr>
           <th>Image</th>
@@ -15,19 +15,19 @@ const EmployeeTable = props => {
         </tr>
       </thead>
       <tbody>
-        {props.results.map(result => (
-          <tr key={result.login.username}>
+        {props.employees.map(employee => (
+          <tr key={employee.login.username}>
             <td>
-              <img src={result.picture.thumbnail} alt='Thumbnail' />
+              <img src={employee.picture.thumbnail} alt='Thumbnail' />
             </td>
-            <td>{`${result.name.first} ${result.name.last} `}</td>
-            <td>{result.phone}</td>
-            <td>{result.email}</td>
-            <td>{result.dob.date}</td>
+            <td>{`${employee.name.first} ${employee.name.last} `}</td>
+            <td>{employee.phone}</td>
+            <td>{employee.email}</td>
+            <td>{employee.dob.date}</td>
           </tr>
         ))}
       </tbody>
-    </Table>
+    </table>
   );
 };
 
