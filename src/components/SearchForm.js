@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import EmployeeContext from '../utils/EmployeeContext';
 
-const SearchForm = ({ employees, filterEmployees }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    const filteredEmployees =
-      searchTerm === ''
-        ? employees
-        : employees.filter(
-            ({ name: { first, last } }) =>
-              first.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ||
-              last.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
-          );
-
-    filterEmployees(filteredEmployees);
-  }, [searchTerm, employees]);
+const SearchForm = () => {
+  const employees = useContext(EmployeeContext);
 
   return (
-    <input value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+    <input
+      type='search'
+      placeholder='Name'
+      onChange={e => employees.handleFilter(e)}
+    />
   );
 };
 

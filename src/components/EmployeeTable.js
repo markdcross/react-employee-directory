@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import TableItem from './TableItem';
 
-const EmployeeTable = props => {
+const EmployeeTable = () => {
+
   // TODO Add State for sorting
 
   return (
@@ -15,17 +17,7 @@ const EmployeeTable = props => {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map(employee => (
-          <tr key={employee.login.username}>
-            <td>
-              <img src={employee.picture.thumbnail} alt='Thumbnail' />
-            </td>
-            <td>{`${employee.name.first} ${employee.name.last} `}</td>
-            <td>{employee.phone}</td>
-            <td>{employee.email}</td>
-            <td>{employee.dob.date}</td>
-          </tr>
-        ))}
+        <TableItem />
       </tbody>
     </table>
   );
