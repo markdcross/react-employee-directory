@@ -43,8 +43,7 @@ function App() {
   };
 
   const sortName = () => {
-    const usersCopy = [...employeeState.filteredEmployees];
-    const updateSort = usersCopy.sort((a, b) => {
+    const updateSort = employeeState.filteredEmployees.sort((a, b) => {
       if (a.name.first < b.name.first) {
         return -1;
       }
@@ -65,7 +64,6 @@ function App() {
     <EmployeeContext.Provider value={{ employeeState, handleFilter, sortName }}>
       <Fragment>
         <Header />
-
         <Container fluid>
           <EmployeeTable />
         </Container>
