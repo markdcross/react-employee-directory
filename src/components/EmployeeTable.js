@@ -9,16 +9,18 @@ const EmployeeTable = () => {
   const { sortName } = useContext(EmployeeContext);
 
   return (
-    <Container fluid className='center'>
+    <Container fluid className='employeeTable'>
       <Row>
         <Table striped bordered hover responsive>
           <thead>
             <tr>
-              <th>Image</th>
-              <th onClick={sortName}>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
+              <th className='center'>Image</th>
+              <th className='center' onClick={sortName}>
+                Name
+              </th>
+              <th className='center'>Phone</th>
+              <th className='center'>Email</th>
+              <th className='center'>DOB</th>
             </tr>
           </thead>
           <tbody>
