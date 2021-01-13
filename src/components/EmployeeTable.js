@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Table from 'react-bootstrap/Table';
 import TableItem from './TableItem';
 import EmployeeContext from '../utils/EmployeeContext';
 
@@ -6,7 +7,7 @@ const EmployeeTable = () => {
   const { sortName } = useContext(EmployeeContext);
 
   return (
-    <table>
+    <Table striped bordered hover>
       <thead>
         <tr>
           <th>Image</th>
@@ -19,7 +20,7 @@ const EmployeeTable = () => {
       <tbody>
         <TableItem />
       </tbody>
-    </table>
+    </Table>
   );
 };
 

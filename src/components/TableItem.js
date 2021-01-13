@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import Moment from 'react-moment';
 import EmployeeContext from '../utils/EmployeeContext';
 
 const TableItem = () => {
@@ -16,7 +17,9 @@ const TableItem = () => {
           <td>{`${name.first} ${name.last}`}</td>
           <td>{phone}</td>
           <td>{email}</td>
-          <td>{dob.date}</td>
+          <td>
+            <Moment format='MMMM Do, YYYY'>{dob.date}</Moment>
+          </td>
         </tr>
       ))}
     </Fragment>
