@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import TableItem from './TableItem';
+import EmployeeContext from '../utils/EmployeeContext';
 
 const EmployeeTable = () => {
-
-  // TODO Add State for sorting
+  const { sortName } = useContext(EmployeeContext);
 
   return (
     <table>
       <thead>
         <tr>
           <th>Image</th>
-          <th>Name</th>
+          <th onClick={sortName}>Name</th>
           <th>Phone</th>
           <th>Email</th>
           <th>DOB</th>

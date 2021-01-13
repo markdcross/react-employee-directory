@@ -10,7 +10,9 @@ import './App.css';
 function App() {
   const [employeeState, setEmployeeState] = useState({
     employees: [],
-    filteredEmployees: []
+    filteredEmployees: [],
+    order: 'descend',
+    headings: []
   });
 
   useEffect(() => {
@@ -28,7 +30,10 @@ function App() {
       let values =
         employee.name.first.toLowerCase() +
         ' ' +
-        employee.name.last.toLowerCase();
+        employee.name.last.toLowerCase() +
+        ' ' +
+        employee.phone.toLowerCase() +
+        ' ';
 
       if (values.indexOf(filter.toLowerCase()) !== -1) {
         return employee;
@@ -38,10 +43,28 @@ function App() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
+  const sortName = () => {
+    const usersCopy = [...employeeState.filteredEmployees];
+    const updateSort = usersCopy.sort((a, b) => {
+      if (a.name.first < b.name.first) {
+        return -1;
+      }
+      // descending order
+      else if (b.name.first > a.name.first) {
+        return 1;
+      }
+      // no sort
+      else {
+        return 0;
+      }
+    });
+
+    setEmployeeState({ ...employeeState, filteredEmployees: updateSort });
+  };
   console.log(employeeState);
 
   return (
-    <EmployeeContext.Provider value={{ employeeState, handleFilter }}>
+    <EmployeeContext.Provider value={{ employeeState, handleFilter, sortName }}>
       <Fragment>
         <Header />
         <SearchForm />

@@ -7,7 +7,7 @@ const SearchForm = () => {
   return (
     <input
       type='search'
-      placeholder='Name'
+      placeholder='Name or phone'
       onChange={e => employees.handleFilter(e)}
     />
   );
