@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import EmployeeTable from './components/EmployeeTable';
@@ -10,9 +11,7 @@ import './App.css';
 function App() {
   const [employeeState, setEmployeeState] = useState({
     employees: [],
-    filteredEmployees: [],
-    order: 'descend',
-    headings: []
+    filteredEmployees: []
   });
 
   useEffect(() => {
@@ -61,14 +60,15 @@ function App() {
 
     setEmployeeState({ ...employeeState, filteredEmployees: updateSort });
   };
-  console.log(employeeState);
 
   return (
     <EmployeeContext.Provider value={{ employeeState, handleFilter, sortName }}>
       <Fragment>
         <Header />
-        <SearchForm />
-        <EmployeeTable />
+
+        <Container fluid>
+          <EmployeeTable />
+        </Container>
       </Fragment>
     </EmployeeContext.Provider>
   );
