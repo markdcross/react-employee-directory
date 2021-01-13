@@ -9,7 +9,7 @@ const EmployeeTable = () => {
   const { sortName } = useContext(EmployeeContext);
 
   return (
-    <Container fluid>
+    <Container fluid className='center'>
       <Row>
         <Table striped bordered hover responsive>
           <thead>

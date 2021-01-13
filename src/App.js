@@ -1,7 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
-import SearchForm from './components/SearchForm';
 import EmployeeTable from './components/EmployeeTable';
 import API from './utils/API';
 import EmployeeContext from './utils/EmployeeContext';
@@ -62,12 +61,10 @@ function App() {
 
   return (
     <EmployeeContext.Provider value={{ employeeState, handleFilter, sortName }}>
-      <Fragment>
-        <Header />
-        <Container fluid>
-          <EmployeeTable />
-        </Container>
-      </Fragment>
+      <Header />
+      <Container fluid>
+        <EmployeeTable />
+      </Container>
     </EmployeeContext.Provider>
   );
 }

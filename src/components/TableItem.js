@@ -9,13 +9,13 @@ const TableItem = () => {
   let filteredList = employeeState.filteredEmployees;
 
   return (
-    <Fragment>
+    <Fragment >
       {filteredList.map(({ login, picture, name, phone, email, dob }) => (
-        <tr key={login.username}>
+        <tr key={login.username} >
           <td>
             <Image src={picture.thumbnail} alt='Thumbnail' thumbnail fluid />
           </td>
-          <td>{`${name.first} ${name.last}`}</td>
+          <td >{`${name.first} ${name.last}`}</td>
           <td>{phone}</td>
           <td>{email}</td>
           <td>
