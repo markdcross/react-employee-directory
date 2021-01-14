@@ -4,13 +4,13 @@ import Form from 'react-bootstrap/Form';
 import EmployeeContext from '../utils/EmployeeContext';
 
 const SearchForm = () => {
-  const employees = useContext(EmployeeContext);
+  const { setSearchState } = useContext(EmployeeContext);
 
   return (
     <Form.Control
       type='search'
       placeholder='Search for name or phone'
-      onChange={e => employees.setSearchState(e.target.value)}
+      onChange={e => setSearchState(e.target.value)}
     />
   );
 };

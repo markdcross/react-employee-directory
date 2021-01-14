@@ -13,7 +13,7 @@ const Footer = () => {
         Mark Cross&nbsp;
       </a>
       | Powered by&nbsp;
-      <i class='fab fa-react'> React</i>
+      <i className='fab fa-react'> React</i>
     </Row>
   );
 };

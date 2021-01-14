@@ -4,13 +4,11 @@ import Moment from 'react-moment';
 import EmployeeContext from '../utils/EmployeeContext';
 
 const TableItem = () => {
-  const { employeeState } = useContext(EmployeeContext);
-
-  let filteredList = employeeState.filteredEmployees;
+  const { employeeState: {filteredEmployees} } = useContext(EmployeeContext);
 
   return (
     <tbody>
-      {filteredList.map(({ login, picture, name, phone, email, dob }) => (
+      {filteredEmployees.map(({ login, picture, name, phone, email, dob }) => (
         <tr key={login.username}>
           <td className='center'>
             <Image src={picture.thumbnail} alt='Thumbnail' thumbnail fluid />
