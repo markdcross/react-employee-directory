@@ -27,7 +27,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(searchState);
     setEmployeeState({
       ...employeeState,
       filteredEmployees: employeeState.employees.filter(employee => {
@@ -39,6 +38,7 @@ function App() {
         );
       })
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchState]);
 
   // Sort by either name column

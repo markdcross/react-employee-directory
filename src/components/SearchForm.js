@@ -11,7 +11,6 @@ const SearchForm = () => {
       type='search'
       placeholder='Search for name or phone'
       onChange={e => employees.setSearchState(e.target.value)}
-      // onChange={e => employees.handleFilter(e)}
     />
   );
 };
