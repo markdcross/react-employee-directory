@@ -16,10 +16,10 @@ const EmployeeTable = () => {
             <tr>
               <th className='center'>Image</th>
               <th className='center' onClick={() => sortName('first')}>
-                First Name
+                First Name&nbsp;<i className='fas fa-sort'></i>
               </th>
               <th className='center' onClick={() => sortName('last')}>
-                Last Name
+                Last Name&nbsp;<i className='fas fa-sort'></i>
               </th>
               <th className='center'>Phone</th>
               <th className='center'>Email</th>
