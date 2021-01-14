@@ -8,13 +8,15 @@ import EmployeeContext from './utils/EmployeeContext';
 import './App.css';
 
 function App() {
+  //* State
   const [employeeState, setEmployeeState] = useState({
     employees: [],
     filteredEmployees: []
   });
-
   const [sortState, setSortState] = useState(true);
+  const [searchState, setSearchState] = useState('');
 
+  // On page load, make the API call and save results to state
   useEffect(() => {
     API.getEmployees().then(({ data: { results } }) => {
       setEmployeeState({
@@ -24,25 +26,22 @@ function App() {
     });
   }, []);
 
-  const handleFilter = e => {
-    const filter = e.target.value;
-    const filteredList = employeeState.employees.filter(employee => {
-      let values =
-        employee.name.first.toLowerCase() +
-        ' ' +
-        employee.name.last.toLowerCase() +
-        ' ' +
-        employee.phone.toLowerCase() +
-        ' ';
-
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return employee;
-      }
+  useEffect(() => {
+    console.log(searchState);
+    setEmployeeState({
+      ...employeeState,
+      filteredEmployees: employeeState.employees.filter(employee => {
+        return (
+          // allow users to search for first/last name or phone
+          employee.name.first.toLowerCase().indexOf(searchState) !== -1 ||
+          employee.name.last.toLowerCase().indexOf(searchState) !== -1 ||
+          employee.phone.indexOf(searchState) !== -1
+        );
+      })
     });
+  }, [searchState]);
 
-    setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
-  };
-
+  // Sort by either name column
   const sortName = column => {
     const updateSort = sortState
       ? employeeState.filteredEmployees.sort((a, b) =>
@@ -59,7 +58,9 @@ function App() {
   };
 
   return (
-    <EmployeeContext.Provider value={{ employeeState, handleFilter, sortName }}>
+    <EmployeeContext.Provider
+      value={{ employeeState, sortName, setSearchState }}
+    >
       <Header />
       <Container fluid>
         <EmployeeTable />
