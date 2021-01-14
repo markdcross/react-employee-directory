@@ -35,9 +35,9 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 
 1. React.js
 2. React-router-dom
-3. React-bootsrap/bootswatch
-4. Axios
-5. Generate-unique-id
+3. React-bootsrap
+4. Context API
+5. Axios
 6. Moment
 7. React Hooks (useState, useEffect)
 8. Javascript
@@ -54,7 +54,7 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 
 ## License
 
-Licensed under the [MIT](https://github.com/markdcross/burger/blob/master/LICENSE.txt) license.
+Licensed under the [MIT](https://github.com/markdcross/react-employee-directory/blob/b84023c257e284259ceb7eacb8bfc70fdbff0947/LICENSE) license.
 
 ---
 
@@ -76,5 +76,5 @@ N/A
 
 Feel free to contact me with any questions or feedback:
 
-- GitHub: [markdcross](https://github.com/markdcross)
+- Portfolio: [markdcross.com](https://markdcross.com/)
 - Email: <markdcross@gmail.com>
