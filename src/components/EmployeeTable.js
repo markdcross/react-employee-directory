@@ -15,8 +15,11 @@ const EmployeeTable = () => {
           <thead>
             <tr>
               <th className='center'>Image</th>
-              <th className='center' onClick={sortName}>
-                Name
+              <th className='center' onClick={() => sortName('first')}>
+                First Name
+              </th>
+              <th className='center' onClick={() => sortName('last')}>
+                Last Name
               </th>
               <th className='center'>Phone</th>
               <th className='center'>Email</th>

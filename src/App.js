@@ -13,6 +13,8 @@ function App() {
     filteredEmployees: []
   });
 
+  const [sortState, setSortState] = useState(true);
+
   useEffect(() => {
     API.getEmployees().then(({ data: { results } }) => {
       setEmployeeState({
@@ -41,22 +43,19 @@ function App() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
-  const sortName = () => {
-    const updateSort = employeeState.filteredEmployees.sort((a, b) => {
-      if (a.name.first < b.name.first) {
-        return -1;
-      }
-      // descending order
-      else if (b.name.first > a.name.first) {
-        return 1;
-      }
-      // no sort
-      else {
-        return 0;
-      }
+  const sortName = column => {
+    const updateSort = sortState
+      ? employeeState.filteredEmployees.sort((a, b) =>
+          a.name[column].localeCompare(b.name[column])
+        )
+      : employeeState.filteredEmployees.sort((a, b) =>
+          b.name[column].localeCompare(a.name[column])
+        );
+    setEmployeeState({
+      ...employeeState,
+      filteredEmployees: updateSort
     });
-
-    setEmployeeState({ ...employeeState, filteredEmployees: updateSort });
+    setSortState(!sortState);
   };
 
   return (

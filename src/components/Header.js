@@ -11,7 +11,7 @@ const Header = () => {
           <h1>React Employee Directory</h1>
           <p>
             Search by name and phone number, <br />
-            or sort by first name below
+            or sort by first and last name below
           </p>
         </Navbar.Brand>
 
