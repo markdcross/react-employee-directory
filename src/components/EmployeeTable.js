@@ -26,9 +26,8 @@ const EmployeeTable = () => {
               <th className='center'>DOB</th>
             </tr>
           </thead>
-          <tbody>
-            <TableItem />
-          </tbody>
+
+          <TableItem />
         </Table>
       </Row>
     </Container>

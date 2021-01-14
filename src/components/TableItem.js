@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import Image from 'react-bootstrap/Image';
 import Moment from 'react-moment';
 import EmployeeContext from '../utils/EmployeeContext';
@@ -9,7 +9,7 @@ const TableItem = () => {
   let filteredList = employeeState.filteredEmployees;
 
   return (
-    <Fragment>
+    <tbody>
       {filteredList.map(({ login, picture, name, phone, email, dob }) => (
         <tr key={login.username}>
           <td className='center'>
@@ -24,7 +24,7 @@ const TableItem = () => {
           </td>
         </tr>
       ))}
-    </Fragment>
+    </tbody>
   );
 };
 

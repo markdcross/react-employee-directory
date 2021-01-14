@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import EmployeeTable from './components/EmployeeTable';
 import API from './utils/API';
 import EmployeeContext from './utils/EmployeeContext';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
     });
   }, []);
 
+  // Whenever searchState (representing the input in the search bar) changes, filter the employee list
   useEffect(() => {
     setEmployeeState({
       ...employeeState,
@@ -62,9 +64,11 @@ function App() {
       value={{ employeeState, sortName, setSearchState }}
     >
       <Header />
-      <Container fluid>
-        <EmployeeTable />
-      </Container>
+        <Jumbotron fluid className='jumbotron'>
+          <EmployeeTable />
+        </Jumbotron>
+
+      <Footer />
     </EmployeeContext.Provider>
   );
 }
